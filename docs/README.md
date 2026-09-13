@@ -37,7 +37,7 @@ Retaining intercept $b$ accounts for initial thermal and virial fluctuations nea
 
 2. **Operational 0.2% Offset Stress ($\sigma_{0.2}^{\mathrm{op}}$)**: First downward intersection of the 21-sample centered mean stress with the slope line shifted by $0.002$ strain, requiring 3-sample persistence.
 3. **Common-Window Peak Stress ($\sigma_{\mathrm{p}}^{0\text{-}10\%}$)**: Maximum raw stress within $0 \le \varepsilon_c \le 0.10$.
-4. **Complete-Record Maxima**: Evaluated over $0 \le \varepsilon_c \le 0.20$ for the seven extended loading records (secondary stress maxima occur between 14% and 18% strain).
+4. **Complete-Record Maxima**: Evaluated over $0 \le \varepsilon_c \le 0.20$ for the seven extended loading records (secondary stress maxima occur between 18.41% and 19.29% strain).
 
 ### Parameter Sensitivity Design
 Evaluates 60 processing settings per record (5 fit limits $\times$ 4 smoothing lengths $\times$ 3 persistence counts), producing 540 total evaluations. Sensitivity ranges measure descriptor extraction bounds across matched parameter combinations.
@@ -77,8 +77,6 @@ python -m pip install -e ".[test,plot]"
 ### Verification Commands
 ```bash
 python -m hea_md verify
-python tools/independent_check.py
-python tools/decimal_check.py
 python -m pytest -q
 ```
 - `hea_md verify`: Recomputes the campaign and validates JSON and CSV exports.
