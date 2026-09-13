@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "system": "Hf-Nb-Ta-Ti-Zr",
+  "strain_unit": "fraction",
+  "stress_unit": "GPa",
+  "strain_convention": "engineering compression positive",
+  "stress_convention": "engineering compression positive",
+  "case_assignment": "Explicit composition-to-file mapping supplied with the study; CSV columns do not encode species identity.",
+  "protocol": {
+    "temperature_target_K": 300,
+    "lateral_pressure_target_bar": 0,
+    "initial_cells_per_axis": 15,
+    "initial_sites": 6750,
+    "initial_lattice_parameter_A": 3.4,
+    "initial_length_A": 51.0,
+    "loading_axis": "[001]",
+    "engineering_strain_rate_s_inverse": 1000000000.0,
+    "timestep_ps": 0.001,
+    "sample_interval_steps": 100,
+    "chemical_seed": 1234567,
+    "velocity_seed": 12345
+  },
+  "cases": [
+    {
+      "id": "eq",
+      "label": "Equiatomic",
+      "nominal_atomic_percent": {
+        "Hf": 20,
+        "Nb": 20,
+        "Ta": 20,
+        "Ti": 20,
+        "Zr": 20
+      },
+      "curve_file": "strain_stress_9.csv",
+      "sha256": "eaf9b52ce3e695df0cad43ccb21ccb9730ac03164ae2250d0bc61ce6ceaaf26c",
+      "input_file": "simulation/inputs/eq.lmp",
+      "input_sha256": "49f5d419b9878c20e302f1ad1766b0c86b179cf6657f258cc349ac307658fd94",
+      "samples": 1001,
+      "maximum_strain": 0.1
+    },
+    {
+      "id": "zr24",
+      "label": "Zr 24%",
+      "nominal_atomic_percent": {
+        "Hf": 19,
+        "Nb": 19,
+        "Ta": 19,
+        "Ti": 19,
+        "Zr": 24
+      },
+      "curve_file": "strain_stress_2.csv",
+      "sha256": "fc4efec351f5516b713ff3ac2734d568c1bbf0b20d3ee360a11791758bc9617e",
+      "input_file": "simulation/inputs/zr24.lmp",
+      "input_sha256": "f6fcbd217f106673a4581712b47552a2984bd1f63c6bf62afb70e3cc78053603",
+      "samples": 2001,
+      "maximum_strain": 0.2
+    },
+    {
+      "id": "zr28",
+      "label": "Zr 28%",
+      "nominal_atomic_percent": {
+        "Hf": 18,
+        "Nb": 18,
+        "Ta": 18,
+        "Ti": 18,
+        "Zr": 28
+      },
+      "curve_file": "strain_stress_1.csv",
+      "sha256": "a90dda2395850c79bed2e9394536168b0468eb2ab7969cfc6941625f8e9e3f80",
+      "input_file": "simulation/inputs/zr28.lmp",
+      "input_sha256": "088c96dfb834b2016a2ec8223545ca3b08d240c1c193b6ddbf0e24fa165e91fe",
+      "samples": 1001,
+      "maximum_strain": 0.1
+    },
+    {
+      "id": "hf16",
+      "label": "Hf 16%",
+      "nominal_atomic_percent": {
+        "Hf": 16,
+        "Nb": 21,
+        "Ta": 21,
+        "Ti": 21,
+        "Zr": 21
+      },
+      "curve_file": "strain_stress_4.csv",
+      "sha256": "056709f275111c7894db23237d2630b60e760bb0f6cf16728fb738ec3ae1e965",
+      "input_file": "simulation/inputs/hf16.lmp",
+      "input_sha256": "ee667bb98325dfa988d3ff0352fef18863938336cf0f5baa6d02e8bc264bf2ca",
+      "samples": 2001,
+      "maximum_strain": 0.2
+    },
+    {
+      "id": "hf12",
+      "label": "Hf 12%",
+      "nominal_atomic_percent": {
+        "Hf": 12,
+        "Nb": 22,
+        "Ta": 22,
+        "Ti": 22,
+        "Zr": 22
+      },
+      "curve_file": "strain_stress_3.csv",
+      "sha256": "cbd5ae0e44d9be8f1af571b03c92db7cab41c908b3278da94b24f26e1a64fe44",
+      "input_file": "simulation/inputs/hf12.lmp",
+      "input_sha256": "07831cd475ecd88e5f83339d658a4e2ac14ae588462cae3541b3a2efe12a250b",
+      "samples": 2001,
+      "maximum_strain": 0.2
+    },
+    {
+      "id": "ta16",
+      "label": "Ta 16%",
+      "nominal_atomic_percent": {
+        "Hf": 21,
+        "Nb": 21,
+        "Ta": 16,
+        "Ti": 21,
+        "Zr": 21
+      },
+      "curve_file": "strain_stress_6.csv",
+      "sha256": "4da167f91274de463be656ad9bb65151ce2ee9838601e8c557f2ec86cb003219",
+      "input_file": "simulation/inputs/ta16.lmp",
+      "input_sha256": "fd17577ad7c307310e391b812cb1d8f3ddbaf8a369612a38fc1fa327f32020e9",
+      "samples": 2001,
+      "maximum_strain": 0.2
+    },
+    {
+      "id": "ta12",
+      "label": "Ta 12%",
+      "nominal_atomic_percent": {
+        "Hf": 22,
+        "Nb": 22,
+        "Ta": 12,
+        "Ti": 22,
+        "Zr": 22
+      },
+      "curve_file": "strain_stress_5.csv",
+      "sha256": "9677a47359cc486ec4e6bb8d7de3c0aab9d4420b52b06c2e9e0d8875b2df7f8d",
+      "input_file": "simulation/inputs/ta12.lmp",
+      "input_sha256": "e928c0871246d7db5aa2702ae323cb0f6af46eb7d10e17149f2a38706e3e9070",
+      "samples": 2001,
+      "maximum_strain": 0.2
+    },
+    {
+      "id": "nb24",
+      "label": "Nb 24%",
+      "nominal_atomic_percent": {
+        "Hf": 19,
+        "Nb": 24,
+        "Ta": 19,
+        "Ti": 19,
+        "Zr": 19
+      },
+      "curve_file": "strain_stress_7.csv",
+      "sha256": "534588b309fe4568e9a7db147cc2883727745f43c9450d355ba4ae15b83ac723",
+      "input_file": "simulation/inputs/nb24.lmp",
+      "input_sha256": "5acc83837466eb1b02864a81fc8b0401d649cb7aee4a7f847f18776c423c1231",
+      "samples": 2001,
+      "maximum_strain": 0.2
+    },
+    {
+      "id": "nb28",
+      "label": "Nb 28%",
+      "nominal_atomic_percent": {
+        "Hf": 18,
+        "Nb": 28,
+        "Ta": 18,
+        "Ti": 18,
+        "Zr": 18
+      },
+      "curve_file": "strain_stress_8.csv",
+      "sha256": "24218b1c50ed442efdd3417baf833e9566b340123029e64768ca8f53963a5cff",
+      "input_file": "simulation/inputs/nb28.lmp",
+      "input_sha256": "2c8c246e6231746005d429eba138e1b6e90427c3cc6a34624138edc9d0f2060c",
+      "samples": 2001,
+      "maximum_strain": 0.2
+    }
+  ]
+}

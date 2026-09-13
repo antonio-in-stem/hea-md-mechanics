@@ -1,0 +1,12 @@
+* text=auto eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.tex text eol=lf
+*.lmp text eol=lf
+data/raw/* -text whitespace=cr-at-eol
+data/auxiliary/*.csv -text whitespace=cr-at-eol
+*.svg text eol=lf whitespace=-blank-at-eol
+*.xlsx binary
+*.pdf binary
+*.png binary

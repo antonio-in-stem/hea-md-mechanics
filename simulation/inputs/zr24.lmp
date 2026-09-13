@@ -1,0 +1,80 @@
+# Hf-Nb-Ta-Ti-Zr: zr24; compression along [001].
+# units metal: Angstrom, ps, eV, bar. Timestep = 0.001 ps.
+# Species fractions are nominal; type/fraction does not enforce exact counts.
+# Repeated chemical seed implements nested coordinate-based selections.
+# Run from a directory prepared by: python -m hea_md stage
+# A complete run writes atom trajectories and may require several GB.
+
+units metal
+dimension 3
+boundary p p p
+atom_style atomic
+neighbor 0.3 bin
+timestep 0.001
+region whole block 0 51.0 0 51.0 0 51.0
+create_box 5 whole
+region box block 0 51.0 0 51.0 0 51.0
+lattice	bcc 3.4 orient x 1 0 0 orient y 0 1 0 orient z 0 0 1
+create_atoms 1 region box
+set type 1 type/fraction 1 1.0 1234567
+set type 1 type/fraction 2 0.81 1234567
+set type 2 type/fraction 3 0.62 1234567
+set type 3 type/fraction 4 0.43 1234567
+set type 4 type/fraction 5 0.24 1234567
+variable p equal press
+variable t equal temp
+variable sstep equal step
+variable pote equal pe
+pair_style	   meam
+pair_coeff	   * * potential/library.meam Hf Nb Ta Ti Zr potential/HfNbTaTiZr.meam Hf Nb Ta Ti Zr
+dump 1 all custom 100 outputs/minimization_1.dump id type x y z
+min_style	cg
+minimize	1.0e-12 1.0e-12 10000 10000
+undump		1
+velocity all create 300 12345 mom yes rot yes dist gaussian
+dump positions all custom 250 outputs/positions.dump id type x y z
+thermo 250
+thermo_style custom step temp press pe
+fix thermodynamics all print 250 "${sstep},${t},${p},${pote}" file outputs/thermodynamics.csv
+reset_timestep 0
+fix hold all npt temp 300 300 $(100*dt) iso 0 0 $(1000*dt)
+run 30000
+unfix hold
+fix heating all npt temp 300 1500 $(100*dt) iso 0 0 $(1000*dt)
+run 300000
+unfix heating
+fix hold all nvt temp 1500 1500 $(100*dt)
+run 30000
+unfix hold
+fix cooling all npt temp 1500 300 $(100*dt) iso 0 0 $(1000*dt)
+run 300000
+unfix cooling
+fix hold all npt temp 300 300 $(100*dt) iso 0 0 $(1000*dt)
+run 300000
+unfix hold
+fix hold all nvt temp 300 300 $(100*dt)
+run 50000
+unfix hold
+undump positions
+unfix thermodynamics
+reset_timestep	0
+variable        tmp equal lz
+variable        lz0 equal ${tmp}
+variable        tmp1 equal lx
+variable        lx0 equal ${tmp1}
+variable        tmp2 equal ly
+variable        ly0 equal ${tmp2}
+variable strainrate equal -1.0e9
+variable strainrate1 equal "v_strainrate/1.0e12"
+reset_timestep	0
+fix	hold all npt temp 300.0 300.0 $(100*dt) x 0.0 0.0 $(1000*dt) y 0.0 0.0 $(1000*dt)
+fix	deformation all deform 1 z erate ${strainrate1} units box remap x
+variable strain equal "(v_lz0-lz)/v_lz0"
+variable stress equal "((0.0001*pzz)*(lx*ly))/(v_ly0*v_lx0)"
+fix strain_stress all print 100 "${strain},${stress}" file outputs/strain_stress.csv screen no
+dump 1 all custom 100 outputs/positions_stressed.dump id type x y z vx vy vz fx fy fz
+run 200000
+unfix hold
+unfix deformation
+unfix strain_stress
+print "---------------- Complete"

@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hea-md-mechanics"
+version = "1.0.0"
+description = "Atomistic molecular dynamics compression and mechanical descriptor analysis for Hf-Nb-Ta-Ti-Zr refractory alloys"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24,<3"]
+
+[project.optional-dependencies]
+test = ["pytest>=7,<10"]
+plot = ["matplotlib>=3.7,<4"]
+
+[project.scripts]
+hea-md = "hea_md.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

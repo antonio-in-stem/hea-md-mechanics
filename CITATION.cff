@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Please cite the authors, title and release identifier when using these data or analysis tools."
+title: "HfNbTaTiZr: composition-dependent atomistic compression"
+type: dataset
+version: 1.0.0
+authors:
+  - family-names: "Martínez Torres"
+    given-names: "José Antonio"
+    affiliation: "Autonomous University of Nuevo León"
+  - family-names: "Mejía-Rosales"
+    given-names: "Sergio Javier"
+    affiliation: "Autonomous University of Nuevo León"
+abstract: "Nine nominal-composition compression records, LAMMPS protocol inputs, finite-window mechanical descriptors, method-sensitivity analysis and manuscript sources."
+keywords:
+  - molecular dynamics
+  - high-entropy alloys
+  - HfNbTaTiZr
+  - compression
+  - LAMMPS

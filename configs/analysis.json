@@ -1,0 +1,26 @@
+{
+  "fit_min": 0.0,
+  "fit_max": 0.02,
+  "analysis_max": 0.1,
+  "offset": 0.002,
+  "smooth_points": 21,
+  "confirm_points": 3,
+  "sensitivity_fit_max": [
+    0.01,
+    0.015,
+    0.02,
+    0.025,
+    0.032
+  ],
+  "sensitivity_smooth_points": [
+    1,
+    11,
+    21,
+    31
+  ],
+  "sensitivity_confirm_points": [
+    1,
+    3,
+    5
+  ]
+}
