@@ -27,16 +27,16 @@ $$
 Adjusting a target element scales all four complementary species fractions simultaneously through Hf-Nb-Ta-Ti-Zr composition space.
 
 ### Mechanical Descriptors
-1. **Initial Fitted Stiffness ($E_{0\text{-}2\%}$)**: Ordinary least-squares slope evaluated over $0 \le \varepsilon_c \le 0.02$ retaining the intercept $b$:
+1. **Initial Fitted Stiffness ($E_{0-2\%}$)**: Ordinary least-squares slope evaluated over $0 \le \varepsilon_c \le 0.02$ retaining the intercept $b$:
 
 $$
-\sigma_i \approx E_{0\text{-}2\%} \varepsilon_i + b
+\sigma_i \approx E_{0-2\%} \varepsilon_i + b
 $$
 
 Retaining intercept $b$ accounts for initial thermal and virial fluctuations near the origin.
 
 2. **Operational 0.2% Offset Stress ($\sigma_{0.2}^{\mathrm{op}}$)**: First downward intersection of the 21-sample centered mean stress with the slope line shifted by $0.002$ strain, requiring 3-sample persistence.
-3. **Common-Window Peak Stress ($\sigma_{\mathrm{p}}^{0\text{-}10\%}$)**: Maximum raw stress within $0 \le \varepsilon_c \le 0.10$.
+3. **Common-Window Peak Stress ($\sigma_{\mathrm{p}}^{0-10\%}$)**: Maximum raw stress within $0 \le \varepsilon_c \le 0.10$.
 4. **Complete-Record Maxima**: Evaluated over $0 \le \varepsilon_c \le 0.20$ for the seven extended loading records (secondary stress maxima occur between 18.41% and 19.29% strain).
 
 ### Parameter Sensitivity Design
